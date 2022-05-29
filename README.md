@@ -3,9 +3,11 @@
 This is a simple program that can help user to capture the moving objects occured in the videos and output them as PNG files with duplicates removed.
 
 One frame from a video
+
 ![Test Image 1](./images/pic1.png)
 
 Output produced by the program
+
 ![Test Image 2](./images/pic2.png)
 
 ![Test Image 3](./images/pic3.png)
