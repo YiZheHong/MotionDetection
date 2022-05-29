@@ -4,8 +4,10 @@ This is a simple program that can help user to capture the moving objects occure
 
 One frame from a video
 ![Test Image 1](./images/pic1.png)
+
 Output produced by the program
 ![Test Image 2](./images/pic2.png)
+
 ![Test Image 3](./images/pic3.png)
 
 
