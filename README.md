@@ -16,7 +16,7 @@ pip install imutils==0.5.4
 ```
 
 ## Run
-Cd to the directory where you store this program and
+Cd to the directory where you store this program, change the hyperparamters in method.py and
 
 ``` bash
 python main.py
@@ -27,13 +27,13 @@ python main.py
 ## Example Usage
 One frame from a video
 
-![Test Image 1](./images/pic1.png)
+![Test Image 1](./images/pic9.png)
 
 Output produced by the program
 
-![Test Image 2](./images/pic2.png)
+![Test Image 2](./images/0.png)
 
-![Test Image 3](./images/pic3.png)
+![Test Image 3](./images/1.png)
 
 
 

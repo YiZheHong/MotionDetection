@@ -1,8 +1,8 @@
 import cv2
 import os
 
-TARGET_FILE = '../video5/0.png'
-comparing_img_path = '../video5/1.png'
+TARGET_FILE = '../images/pic6.png'
+comparing_img_path = '../images/pic8.png'
 IMG_SIZE = (500, 500)
 
 target_img = cv2.imread(TARGET_FILE, cv2.IMREAD_GRAYSCALE)

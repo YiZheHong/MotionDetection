@@ -10,9 +10,9 @@ from compareContainer import compareContainer
 
 ap = argparse.ArgumentParser()
 # ap.add_argument("-v", "--video",help="path to the video file")
-ap.add_argument("-f", "--frames", type=int, default=32, help="frams in one second")
-ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo3.mp4',help="path to the video file")
-ap.add_argument("-a", "--min-area", type=int, default=800, help="minimum area size")
+ap.add_argument("-f", "--frames", type=int, default=240, help="frams in one second")
+ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo6.mp4',help="path to the video file")
+ap.add_argument("-a", "--min-area", type=int, default=4000, help="minimum area size")
 args = vars(ap.parse_args())
 movinObject = None
 # if the video argument is None, then we are reading from webcam
@@ -55,7 +55,7 @@ while True:
 	# compute the absolute difference between the current frame and
 	# first frame
 	frameDelta = cv2.absdiff(firstFrame, gray)
-	thresh = cv2.threshold(frameDelta, 20, 255, cv2.THRESH_BINARY)[1]
+	thresh = cv2.threshold(frameDelta, 50, 255, cv2.THRESH_BINARY)[1]
 	# dilate the thresholded image to fill in holes, then find contours
 	# on thresholded image
 	thresh = cv2.dilate(thresh, None, iterations=2)

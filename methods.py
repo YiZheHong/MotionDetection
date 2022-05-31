@@ -3,6 +3,9 @@ import argparse
 import os
 import imutils
 import cv2
+
+parent_dir = "C:\\Users\\yizhe\\Desktop\\RA\\OpenCV"
+
 # ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--frames", type=int, default=16, help="frams in one second")
 # ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo2.mp4',help="path to the video file")
@@ -16,45 +19,46 @@ import cv2
 # ap.add_argument("-fmax", "--MaxfeatureNum", type=int, default=20, help="used to detect distinct objects, i.e target")
 # ap.add_argument("-stl", "--storeLocation", default=".\\video2\\", help="used to detect distinct objects, i.e target")
 
-ap = argparse.ArgumentParser()
-ap.add_argument("-f", "--frames", type=int, default=12, help="frams in one second")
-ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo3.mp4',help="path to the video file")
-ap.add_argument("-a", "--min-area", type=int, default=1000, help="minimum area size")
-ap.add_argument("-m", "--max-area", type=int, default=10000, help="maximum area size")
-ap.add_argument("-s", "--simlarityThreshold", type=int, default=0.9, help="higher the threhold is higher the standard of pictures")
-ap.add_argument("-c", "--movingThreshold", type=int, default=25, help="higher the threhold is higher the standard of moving objects")
-ap.add_argument("-st", "--frameStarted", type=int, default=0, help="higher the threhold is lower the standard of pictures")
-ap.add_argument("-dm", "--detectMode", type=int, default=0, help="0 = compare pixels, 1 = compare features")
-ap.add_argument("-fmin", "--MinfeatureNum", type=int, default=0, help="used to detect distinct objects, i.e target")
-ap.add_argument("-fmax", "--MaxfeatureNum", type=int, default=0, help="used to detect distinct objects, i.e target")
-ap.add_argument("-stl", "--storeLocation", default=".\\video3\\", help="used to detect distinct objects, i.e target")
-
-#
 # ap = argparse.ArgumentParser()
-# ap.add_argument("-f", "--frames", type=int, default=8, help="frams in one second")
-# ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo4.mp4',help="path to the video file")
+# ap.add_argument("-f", "--frames", type=int, default=12, help="frams in one second")
+# ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo3.mp4',help="path to the video file")
 # ap.add_argument("-a", "--min-area", type=int, default=1000, help="minimum area size")
 # ap.add_argument("-m", "--max-area", type=int, default=10000, help="maximum area size")
-# ap.add_argument("-s", "--simlarityThreshold", type=int, default=120, help="higher the threhold is higher the standard of similar pictures")
+# ap.add_argument("-s", "--simlarityThreshold", type=int, default=0.9, help="higher the threhold is higher the standard of pictures")
 # ap.add_argument("-c", "--movingThreshold", type=int, default=25, help="higher the threhold is higher the standard of moving objects")
 # ap.add_argument("-st", "--frameStarted", type=int, default=0, help="higher the threhold is lower the standard of pictures")
-# ap.add_argument("-dm", "--detectMode", type=int, default=1, help="0 = compare pixels, 1 = compare features")
-# ap.add_argument("-fmin", "--MinfeatureNum", type=int, default=50, help="used to detect distinct objects, i.e target")
-# ap.add_argument("-fmax", "--MaxfeatureNum", type=int, default=100000, help="used to detect distinct objects, i.e target")
-# ap.add_argument("-stl", "--storeLocation", default=".\\video4\\", help="used to detect distinct objects, i.e target")
+# ap.add_argument("-dm", "--detectMode", type=int, default=0, help="0 = compare pixels, 1 = compare features")
+# ap.add_argument("-fmin", "--MinfeatureNum", type=int, default=0, help="used to detect distinct objects, i.e target")
+# ap.add_argument("-fmax", "--MaxfeatureNum", type=int, default=0, help="used to detect distinct objects, i.e target")
+# ap.add_argument("-stl", "--storeLocation", default=".\\video3\\", help="used to detect distinct objects, i.e target")
+
+
+#
+ap = argparse.ArgumentParser()
+ap.add_argument("-f", "--frames", type=int, default=8, help="frams in one second")
+ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo4.mp4',help="path to the video file")
+ap.add_argument("-a", "--min-area", type=int, default=1000, help="minimum area size")
+ap.add_argument("-m", "--max-area", type=int, default=10000, help="maximum area size")
+ap.add_argument("-s", "--simlarityThreshold", type=int, default=120, help="higher the threhold is higher the standard of similar pictures")
+ap.add_argument("-c", "--movingThreshold", type=int, default=25, help="higher the threhold is higher the standard of moving objects")
+ap.add_argument("-st", "--frameStarted", type=int, default=0, help="higher the threhold is lower the standard of pictures")
+ap.add_argument("-dm", "--detectMode", type=int, default=1, help="0 = compare pixels, 1 = compare features")
+ap.add_argument("-fmin", "--MinfeatureNum", type=int, default=50, help="used to detect distinct objects, i.e target")
+ap.add_argument("-fmax", "--MaxfeatureNum", type=int, default=100000, help="used to detect distinct objects, i.e target")
+ap.add_argument("-stl", "--storeLocation", default=".\\video4\\", help="used to detect distinct objects, i.e target")
 
 # ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--frames", type=int, default=32, help="frams in one second")
 # ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo5.mp4',help="path to the video file")
 # ap.add_argument("-a", "--min-area", type=int, default=1000, help="minimum area size")
 # ap.add_argument("-m", "--max-area", type=int, default=5000, help="maximum area size")
-# ap.add_argument("-s", "--simlarityThreshold", type=int, default=50, help="higher the threhold is higher the standard of similar pictures")
-# ap.add_argument("-c", "--movingThreshold", type=int, default=90, help="higher the threhold is higher the standard of moving objects")
-# ap.add_argument("-st", "--frameStarted", type=int, default=0, help="higher the threhold is lower the standard of pictures")
+# ap.add_argument("-s", "--simlarityThreshold", type=int, default=50, help="check the provided doc")
+# ap.add_argument("-c", "--movingThreshold", type=int, default=90, help="check the provided doc")
+# ap.add_argument("-st", "--frameStarted", type=int, default=0, help="check the provided doc")
 # ap.add_argument("-dm", "--detectMode", type=int, default=1, help="0 = compare pixels, 1 = compare features")
 # ap.add_argument("-fmin", "--MinfeatureNum", type=int, default=50, help="used to detect distinct objects, i.e target")
 # ap.add_argument("-fmax", "--MaxfeatureNum", type=int, default=4000, help="used to detect distinct objects, i.e target")
-# ap.add_argument("-stl", "--storeLocation", default=".\\video5\\", help="used to detect distinct objects, i.e target")
+# ap.add_argument("-stl", "--storeLocation", default="where do you want to store the output.")
 
 def Initiallization():
 	detector = cv2.AKAZE_create()
@@ -67,7 +71,6 @@ def Initiallization():
 	total_framePassed= 0
 	try:
 		directory = args['storeLocation']
-		parent_dir = "C:\\Users\\yizhe\\Desktop\\RA\\OpenCV"
 		path = os.path.join(parent_dir, directory)
 		os.mkdir(path)
 		print("Directory '% s' created" % directory)
