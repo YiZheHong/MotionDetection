@@ -17,7 +17,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument("-f", "--frames", type=int,default=100,help="frams in one second")
     # ap.add_argument("-v", "--video",help="path to the video file")
-    ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo1.mp4',help="path to the video file")
+    ap.add_argument("-v", "--video",default = 'C:\\Users\\yizhe\\Videos\\Captures\\RAvideos\\RAvideo6.mp4',help="path to the video file")
     ap.add_argument("-a", "--min-area", type=int, default=800, help="minimum area size")
     #15
     args = vars(ap.parse_args())
